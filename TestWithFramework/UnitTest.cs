@@ -23,7 +23,10 @@ namespace TestWithFramework
         }
         [TearDown]
         public void Teardown()
-        { 
+        {
+            driver.Close();
+            //thanks, webdriver!
+            Thread.Sleep(3000);
             driver.Quit();
         }
 
@@ -32,9 +35,9 @@ namespace TestWithFramework
         {
             var coursePage = new CoursesPage(driver);
             var city = "Киев";
-            coursePage.changeCityTo(city);
+            coursePage.ChangeCityTo(city);
             //извините
-            Thread.Sleep(700);
+            Thread.Sleep(4000);
             var currcity = coursePage.GetCurrentCity().ToLower();
             Assert.IsTrue(currcity.Equals( city.ToLower()));
         }

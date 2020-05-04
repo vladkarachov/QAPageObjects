@@ -12,8 +12,8 @@ namespace TestWithFramework.Pages
     class CoursesPage
     {
         private string reg_button = @"reg-button";
-        private string change_city_popup = @".cities-popup .inner ul li";
-        private string change_city_button = @".cities-switch a";
+        private string change_city_popup = ".cities-popup .inner ul li";
+        private string change_city_button = ".cities-switch a";
         private string login_page_adress = @"my.greenforest";
 
 
@@ -23,11 +23,7 @@ namespace TestWithFramework.Pages
             driver = _driver;
             driver.Navigate().GoToUrl("https://greenforest.com.ua/courses/");
         }
-        ~CoursesPage()
-        {
-            //driver.Close();
-        }
-        public CoursesPage changeCityTo(string p0)
+        public CoursesPage ChangeCityTo(string p0)
         {
             var cities = driver.FindElements(By.CssSelector(change_city_popup));
             foreach (var city in cities)
